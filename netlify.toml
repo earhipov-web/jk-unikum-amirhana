@@ -4,3 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Обязателен для сборок на стороне Netlify: без него Next.js-сайт отдаёт 404
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
