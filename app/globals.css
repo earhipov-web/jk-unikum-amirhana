@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* Пастельная палитра: бежевый фон, кремовые карточки, кремово-коричневый текст,
+   шалфейный акцент. Пары «текст/фон» подобраны с контрастом не ниже 4.5:1. */
+:root {
+  --paper: #f1e6d6; /* бежевый фон страницы */
+  --card: #faf3e8; /* кремовые карточки */
+  --cream: #fffaf2; /* поля ввода */
+  --ink: #5a4535; /* основной текст, кремово-коричневый */
+  --cocoa: #6b4f3d; /* тёмные плашки вместо чёрного */
+  --muted: #735e4e;
+  --line: #e0d2bf;
+  --lake: #48695a; /* шалфейный акцент для ссылок */
+  --lake-deep: #3c574b;
+  --lake-soft: #dce8dc;
+  --sage: #bcd4c0; /* кнопки */
+  --sage-deep: #a9c6ae;
+  --blush: #f3d9cb; /* пастельный персиковый */
+  --blush-deep: #ecc9b7;
+  --warn: #a04a3a;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-cocoa: var(--cocoa);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-lake: var(--lake);
+  --color-lake-deep: var(--lake-deep);
+  --color-lake-soft: var(--lake-soft);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+  --color-blush: var(--blush);
+  --color-blush-deep: var(--blush-deep);
+  --color-warn: var(--warn);
+  --font-sans: var(--ff-body), system-ui, sans-serif;
+  --font-display: var(--ff-display), var(--ff-body), system-ui, sans-serif;
+  --font-hand: var(--ff-hand), var(--ff-body), cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 2px solid var(--lake);
+  outline-offset: 2px;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
