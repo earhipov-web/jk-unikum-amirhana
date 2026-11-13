@@ -22,7 +22,7 @@ npm run dev
 
 Сайт: https://jk-unikum-amirhana.netlify.app
 
-Каждый пуш в ветку `main` запускает сборку и публикацию на Netlify. Ручной деплой из папки проекта:
+Автодеплоя нет: пуш в GitHub сайт не обновляет. Сайт публикуется вручную из папки проекта:
 
 ```bash
 netlify deploy --prod --build
