@@ -3,8 +3,8 @@ import { CONTACTS, DATA_DATE, NAV, PROJECT, SOURCES } from "@/lib/data";
 
 export default function SiteFooter() {
   return (
-    <footer className="mt-24 bg-cocoa text-paper">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="mt-12 bg-cocoa text-paper sm:mt-24">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-4 gap-y-7 px-4 py-9 sm:gap-10 sm:py-14 lg:grid-cols-4">
         <div>
           <p className="font-display text-base">Уникум на Амирхана</p>
           <p className="mt-3 text-sm text-paper/85">

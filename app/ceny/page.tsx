@@ -27,34 +27,39 @@ function FlatCard({ flat }: { flat: Flat }) {
     ? `https://unistroy.ru/search/placement/${flat.id}`
     : `${SOURCES.flats}&rooms=${flat.rooms}`;
   return (
-    <li className="flex flex-col overflow-hidden rounded-2xl border border-line bg-card">
+    <li className="flex flex-col overflow-hidden rounded-xl border border-line bg-card sm:rounded-2xl">
       <div className="relative flex aspect-[4/3] items-center justify-center bg-card">
         {flat.plan ? (
           <Image
             src={flat.plan}
             alt={`Планировка: ${flat.rooms}-комнатная квартира ${area(flat.area)} м²`}
             fill
-            sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw"
-            className="object-contain p-4"
+            sizes="(min-width: 1024px) 280px, 50vw"
+            className="object-contain p-2 sm:p-4"
           />
         ) : (
-          <p className="max-w-[16ch] text-center text-sm text-muted">
+          <p className="max-w-[16ch] text-center text-xs text-muted sm:text-sm">
             Планировка — в карточке на сайте застройщика
           </p>
         )}
       </div>
-      <div className="flex flex-1 flex-col border-t border-line p-5">
-        <p className="tnum text-xl font-medium">{fmtPrice(flat.price)}</p>
-        <p className="tnum mt-1 text-sm text-muted">
-          {area(flat.area)} м² · {fmtPrice(flat.price / flat.area)} за м²
+      <div className="flex flex-1 flex-col border-t border-line p-3 sm:p-5">
+        <p className="tnum text-base font-medium sm:text-xl">{fmtPrice(flat.price)}</p>
+        <p className="tnum mt-0.5 text-xs text-muted sm:mt-1 sm:text-sm">
+          {area(flat.area)} м²<span className="hidden sm:inline"> · </span>
+          <span className="block sm:inline">{fmtPrice(flat.price / flat.area)} за м²</span>
         </p>
-        <p className="tnum mt-3 text-sm">
-          Этаж {flat.floor} из {PROJECT.floors} · секция {flat.section} · № {flat.num}
+        <p className="tnum mt-2 text-xs sm:mt-3 sm:text-sm">
+          Этаж {flat.floor} из {PROJECT.floors}
+          <span className="hidden sm:inline"> · </span>
+          <span className="block sm:inline">
+            секция {flat.section} · № {flat.num}
+          </span>
         </p>
         {flat.tags.length > 0 && (
-          <ul className="mt-3 flex flex-wrap gap-1.5">
+          <ul className="mt-2 flex flex-wrap gap-1 sm:mt-3 sm:gap-1.5">
             {flat.tags.map((t) => (
-              <li key={t} className="rounded-full bg-lake-soft px-2.5 py-1 text-xs text-lake-deep">
+              <li key={t} className="rounded-full bg-lake-soft px-2 py-0.5 text-[11px] text-lake-deep sm:px-2.5 sm:py-1 sm:text-xs">
                 {t}
               </li>
             ))}
@@ -64,7 +69,7 @@ function FlatCard({ flat }: { flat: Flat }) {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto pt-4 text-sm font-medium text-lake underline-offset-4 hover:underline"
+          className="mt-auto pt-2.5 text-xs font-medium text-lake underline-offset-4 hover:underline sm:pt-4 sm:text-sm"
         >
           Открыть у застройщика
         </a>
@@ -81,7 +86,7 @@ export default function PricesPage() {
         lead={`${PROJECT.flatsOnSale} квартир в продаже, цены от 11 млн ₽. Ниже — реальные лоты с планировками на ${DATA_DATE}; студий в продаже сейчас нет.`}
       />
 
-      <nav aria-label="Типы квартир" className="mx-auto max-w-6xl px-4 pt-8">
+      <nav aria-label="Типы квартир" className="mx-auto max-w-6xl px-4 pt-5 sm:pt-8">
         <ul className="flex flex-wrap gap-2 text-sm">
           {ROOM_GROUPS.map((g) => (
             <li key={g.anchor}>
@@ -115,7 +120,7 @@ export default function PricesPage() {
             lead={`В продаже ${g.inSale}. В подборке — от ${area(Math.min(...areas))} до ${area(Math.max(...areas))} м², от ${fmtPrice(Math.min(...prices))}.`}
             className="pb-0 sm:pb-0"
           >
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
               {list.map((f) => (
                 <FlatCard key={`${f.section}-${f.num}`} flat={f} />
               ))}
@@ -137,10 +142,10 @@ export default function PricesPage() {
         title={FINISH.type}
         lead="Квартира передаётся подготовленной к финишному ремонту: черновые и «мокрые» работы уже сделаны, дизайн и материалы вы выбираете сами."
       >
-        <div className="grid gap-4 lg:grid-cols-2">
-          <div className="rounded-2xl border border-line bg-card p-6">
-            <h3 className="font-hand text-2xl font-semibold leading-tight">Что обычно уже сделано</h3>
-            <ul className="mt-4 space-y-3 text-sm">
+        <div className="grid gap-3 sm:gap-4 lg:grid-cols-2">
+          <div className="rounded-xl border border-line bg-card p-4 sm:rounded-2xl sm:p-6">
+            <h3 className="font-hand text-xl font-semibold leading-tight sm:text-2xl">Что обычно уже сделано</h3>
+            <ul className="mt-3 space-y-2 text-sm sm:mt-4 sm:space-y-3">
               {FINISH.usually.map((t) => (
                 <li key={t} className="flex gap-3">
                   <span aria-hidden className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-lake" />
@@ -150,9 +155,9 @@ export default function PricesPage() {
             </ul>
             <p className="mt-4 text-xs text-muted">{FINISH.usuallySource}</p>
           </div>
-          <div className="rounded-2xl border border-line bg-card p-6">
-            <h3 className="font-hand text-2xl font-semibold leading-tight">Что остаётся вам</h3>
-            <ul className="mt-4 space-y-3 text-sm">
+          <div className="rounded-xl border border-line bg-card p-4 sm:rounded-2xl sm:p-6">
+            <h3 className="font-hand text-xl font-semibold leading-tight sm:text-2xl">Что остаётся вам</h3>
+            <ul className="mt-3 space-y-2 text-sm sm:mt-4 sm:space-y-3">
               {FINISH.yours.map((t) => (
                 <li key={t} className="flex gap-3">
                   <span aria-hidden className="mt-1.5 h-2 w-2 shrink-0 rounded-full border border-ink" />
@@ -178,11 +183,11 @@ export default function PricesPage() {
         lead="То, что заложено в проект дома и не требует доплат."
         className="pt-0 sm:pt-0"
       >
-        <ul className="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-5 sm:gap-x-8 sm:gap-y-8 lg:grid-cols-3">
           {ENGINEERING.map((e) => (
-            <li key={e.title} className="border-t border-ink pt-4">
-              <h3 className="font-hand text-2xl font-semibold leading-tight">{e.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{e.text}</p>
+            <li key={e.title} className="border-t border-ink pt-3 sm:pt-4">
+              <h3 className="font-hand text-xl font-semibold leading-tight sm:text-2xl">{e.title}</h3>
+              <p className="mt-1.5 text-[13px] leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed">{e.text}</p>
             </li>
           ))}
         </ul>
@@ -195,16 +200,16 @@ export default function PricesPage() {
         title="Что можно оформить вместе с квартирой"
         className="pt-0 sm:pt-0"
       >
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {SERVICES.map((s) => (
-            <li key={s.title} className="flex flex-col rounded-2xl border border-line bg-card p-6">
-              <h3 className="font-medium leading-snug">{s.title}</h3>
-              <p className="tnum mt-2 text-lg font-medium text-lake">{s.price}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{s.text}</p>
+            <li key={s.title} className="flex flex-col rounded-xl border border-line bg-card p-3.5 sm:rounded-2xl sm:p-6">
+              <h3 className="text-sm font-medium leading-snug sm:text-base">{s.title}</h3>
+              <p className="tnum mt-1.5 text-base font-medium text-lake sm:mt-2 sm:text-lg">{s.price}</p>
+              <p className="mt-2 text-xs leading-snug text-muted sm:mt-3 sm:text-sm sm:leading-relaxed">{s.text}</p>
             </li>
           ))}
         </ul>
-        <div className="mt-10 flex flex-wrap gap-3">
+        <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-10 sm:gap-3">
           <Button href="/otzyvy#konsultaciya">Получить консультацию</Button>
           <Button href="/ipoteka" variant="ghost">
             Рассчитать ипотеку

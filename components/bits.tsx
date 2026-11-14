@@ -17,11 +17,11 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={cn("mx-auto max-w-6xl scroll-mt-28 px-4 py-14 sm:py-20", className)}>
-      {eyebrow && <p className="mb-2 font-hand text-2xl font-semibold leading-none text-lake">{eyebrow}</p>}
-      <h2 className="max-w-3xl font-display text-2xl font-medium leading-tight sm:text-3xl">{title}</h2>
-      {lead && <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">{lead}</p>}
-      <div className="mt-10">{children}</div>
+    <section id={id} className={cn("mx-auto max-w-6xl scroll-mt-28 px-4 py-9 sm:py-20", className)}>
+      {eyebrow && <p className="mb-1.5 font-hand text-xl font-semibold leading-none text-lake sm:mb-2 sm:text-2xl">{eyebrow}</p>}
+      <h2 className="max-w-3xl font-display text-xl font-medium leading-tight sm:text-3xl">{title}</h2>
+      {lead && <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:mt-4 sm:text-base">{lead}</p>}
+      <div className="mt-6 sm:mt-10">{children}</div>
     </section>
   );
 }
@@ -29,9 +29,9 @@ export function Section({
 export function PageHead({ title, lead }: { title: string; lead: string }) {
   return (
     <div className="border-b border-line">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
-        <h1 className="max-w-3xl font-display text-3xl font-medium leading-tight sm:text-4xl">{title}</h1>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">{lead}</p>
+      <div className="mx-auto max-w-6xl px-4 py-7 sm:py-16">
+        <h1 className="max-w-3xl font-display text-2xl font-medium leading-tight sm:text-4xl">{title}</h1>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:mt-4 sm:text-lg">{lead}</p>
       </div>
     </div>
   );
@@ -69,7 +69,7 @@ export function Button({
 
 export function Source({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <p className="mt-6 text-xs text-muted">
+    <p className="mt-4 text-xs text-muted sm:mt-6">
       Источник:{" "}
       <a href={href} target="_blank" rel="noopener noreferrer" className="underline hover:text-ink">
         {children}

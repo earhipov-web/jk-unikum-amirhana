@@ -58,15 +58,15 @@ export default function MortgagePage() {
       </Section>
 
       <Section title="Шесть способов оплаты">
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
           {PAY_WAYS.map((w) => (
-            <li key={w.title} className="rounded-2xl border border-line bg-card p-6">
-              <h3 className="font-hand text-2xl font-semibold leading-tight">{w.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{w.text}</p>
+            <li key={w.title} className="rounded-xl border border-line bg-card p-3.5 sm:rounded-2xl sm:p-6">
+              <h3 className="font-hand text-xl font-semibold leading-tight sm:text-2xl">{w.title}</h3>
+              <p className="mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed">{w.text}</p>
             </li>
           ))}
         </ul>
-        <div className="mt-10">
+        <div className="mt-6 sm:mt-10">
           <Button href="/otzyvy#konsultaciya">Подобрать программу с менеджером</Button>
         </div>
       </Section>

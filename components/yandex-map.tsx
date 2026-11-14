@@ -12,7 +12,7 @@ export default function YandexMap({ className = "" }: { className?: string }) {
           loading="lazy"
           referrerPolicy="no-referrer"
           sandbox="allow-scripts allow-same-origin allow-popups"
-          className="block h-[380px] w-full sm:h-[460px]"
+          className="block h-[260px] w-full sm:h-[460px]"
         />
       </div>
       <figcaption className="mt-2 text-sm text-muted">

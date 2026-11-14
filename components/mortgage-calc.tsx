@@ -22,8 +22,8 @@ export default function MortgageCalc() {
   const field = "mt-2 w-full accent-[var(--lake)]";
 
   return (
-    <div className="grid gap-6 rounded-2xl border border-line bg-card p-6 lg:grid-cols-[1.4fr_1fr] lg:p-8">
-      <div className="space-y-6">
+    <div className="grid gap-4 rounded-xl border border-line bg-card p-4 sm:gap-6 sm:rounded-2xl sm:p-6 lg:grid-cols-[1.4fr_1fr] lg:p-8">
+      <div className="space-y-4 sm:space-y-6">
         <div>
           <label htmlFor={`${id}-price`} className="flex justify-between text-sm">
             <span>Стоимость квартиры</span>
@@ -96,13 +96,13 @@ export default function MortgageCalc() {
         </fieldset>
       </div>
 
-      <div className="flex flex-col justify-between rounded-xl bg-lake-soft p-6" aria-live="polite">
+      <div className="flex flex-col justify-between rounded-xl bg-lake-soft p-4 sm:p-6" aria-live="polite">
         <div>
           <p className="text-sm text-lake-deep">Платёж в месяц</p>
-          <p className="tnum mt-1 text-3xl font-medium text-lake-deep sm:text-4xl">
+          <p className="tnum mt-1 text-2xl font-medium text-lake-deep sm:text-4xl">
             {fmtPrice(payment)}
           </p>
-          <dl className="mt-6 space-y-2 text-sm text-lake-deep">
+          <dl className="mt-4 space-y-2 text-sm text-lake-deep sm:mt-6">
             <div className="flex justify-between gap-4">
               <dt>Сумма кредита</dt>
               <dd className="tnum font-medium">{fmtPrice(loan)}</dd>
@@ -113,7 +113,7 @@ export default function MortgageCalc() {
             </div>
           </dl>
         </div>
-        <p className="mt-6 text-xs leading-relaxed text-lake-deep/80">
+        <p className="mt-4 text-xs leading-relaxed text-lake-deep/80 sm:mt-6">
           Расчёт предварительный, по формуле аннуитетного платежа. Не учитывает страховки и
           полную стоимость кредита. Точные условия даёт банк.
         </p>

@@ -22,12 +22,12 @@ const stats = [
 
 export default function FeaturedSectionStats() {
   return (
-    <section className="mx-auto w-full max-w-6xl py-20 text-left sm:py-28">
+    <section className="mx-auto w-full max-w-6xl py-10 text-left sm:py-28">
       <div className="px-4">
         <p className="mb-4 inline-block rounded-full border border-line px-3 py-1 text-xs text-muted">
           Демо-дашборд · данные условные
         </p>
-        <h3 className="mb-12 text-lg font-medium text-ink sm:text-xl lg:text-4xl">
+        <h3 className="mb-6 text-lg font-medium text-ink sm:mb-12 sm:text-xl lg:text-4xl">
           Интерес к проекту в цифрах.{" "}
           <span className="text-sm text-muted sm:text-base lg:text-4xl">
             Следим за спросом в реальном времени: сколько людей записываются на экскурсии,
@@ -35,18 +35,18 @@ export default function FeaturedSectionStats() {
           </span>
         </h3>
 
-        <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
+        <div className="mt-5 grid grid-cols-2 gap-4 sm:mt-8 sm:grid-cols-4 sm:gap-6">
           {stats.map((s) => (
             <div key={s.label}>
-              <p className="tnum text-3xl font-medium text-ink">{s.value}</p>
-              <p className="text-base text-muted">{s.label}</p>
+              <p className="tnum text-2xl font-medium text-ink sm:text-3xl">{s.value}</p>
+              <p className="text-sm text-muted sm:text-base">{s.label}</p>
             </div>
           ))}
         </div>
       </div>
 
       <div
-        className="mt-8 h-56 w-full"
+        className="mt-5 h-36 w-full sm:mt-8 sm:h-56"
         role="img"
         aria-label="График: число броней по месяцам, с 34 в мае до 96 в ноябре (условные данные)"
       >
